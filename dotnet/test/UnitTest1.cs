@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using calculator;
+using System.Collections.Generic;
 
 namespace test
 {
@@ -14,7 +15,14 @@ namespace test
         public void Test1()
         {
             var calc = new Calculator();
-            Assert.AreEqual(7,calc.evaluateString("4+3"));
+
+            var calcBrain = new Dictionary<string, int>();
+            calcBrain.Add("1+1", 2);
+            
+            calc.SetBrain(calcBrain);
+
+            Assert.AreEqual(2, calc.add(1,1));
+
         }
     }
 }
